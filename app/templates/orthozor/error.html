@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<html>
+    <head>
+        <title>Orthozor!</title>
+    </head>
+    <body>
+        <h1>Orthozor!</h1>
+        <p>Erreur: {{ error }}</p>
+        <p><a href="{{ url_for('index') }}">Cliquez ici</a> pour retourner à la page principale.</p>
+    </body>
+</html>
+{% endblock %}

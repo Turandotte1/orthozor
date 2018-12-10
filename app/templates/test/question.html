@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<html>
+    
+	<body>
+               
+        <form method="POST" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+
+            {{ form.hidden_tag() }}
+
+            <p>{% filter markdown %}{{ debut_phrase }}{{ debut_mot_erreur }} {{ form.answer(size=1) }} {{ fin_mot_erreur }}{{ fin_phrase }}{% endfilter %}</p>
+            <p>{{ auteur }}, <em>{{ oeuvre }}</em>, {{ annee }}</p>
+            {{ form.submit }}
+        </form>
+		<p>Cliquer <a href="{{ url_for('orthozor.index') }}">ici</a> pour revenir à l'accueil.</p>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!--Mettre le curseur dans le champ réponse...--> 
+	<script>$(document).ready(function() {
+ 
+    $('#answer').focus();
+	});</script>
+   </body>
+</html>
+{% endblock %}
+

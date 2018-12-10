@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<html>
+    <head>
+        <title>Orthozor!</title>
+    </head>
+    <body>
+        
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" /></head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<div class="page-title">
+<div class="title_left">
+<h2>Mes résultats <small>{{current_user.username}}</small></h2>
+<hr size=1>
+</div></div>
+
+<div class="row">
+<!-- <div class="col-md-6 col-sm-6 col-xs-12">-->
+{% if donnees['nb_total_reponses'] %}
+<h2>{{'Mon score global:  {:.2%}'.format(donnees['nb_reponses_correctes'] / donnees['nb_total_reponses'])}}</h2>
+<p>Vous avez répondu correctement à {{donnees['nb_reponses_correctes']}} question(s) sur {{donnees['nb_total_reponses']}}.</p>
+<div class="progress">
+<div class="progress-bar" role="progressbar" aria-valuenow="{{donnees['nb_reponses_correctes'] / donnees['nb_total_reponses']}}"
+aria-valuemin="0" aria-valuemax="100" style="width:{{100*donnees['nb_reponses_correctes'] / donnees['nb_total_reponses']}}%">
+</div>
+</div>
+{% endif %}
+<hr size=1>
+<!--- <div class="col-md-6 col-sm-6 col-xs-12">-->
+<h3>Mes compétences</h3>
+<canvas id="myChart"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'horizontalBar',
+  data: {
+    labels: {{donnees['etiq_diff_2']|safe}},
+    datasets: [{
+      label: 'Taux de bonnes réponses',
+      data: {{donnees['data_diff_2']|safe}},
+      backgroundColor: "rgba(46,177,255,0.8)",
+	  borderWidth: 1
+    },]
+  },
+  options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+					min: 0,
+                    max: 100,
+                }
+            }],
+            yAxes: [{
+                stacked: true,
+				barPercentage: 0.9,
+            }]
+        }
+	}
+});
+</script></div>
+
+<hr size=1>
+
+
+<div class="row">
+<!--- <div class="col-md-6 col-sm-6 col-xs-12">  -->
+<h3>Ma distribution de compétences</h3>
+<p><i>Les cinq catégories d'erreur ci-dessous représentent 80% des erreurs d'orthographe grammaticale observées.</i></p>
+<canvas id="myChart2"></canvas>
+<script>
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: {{donnees['etiq_diff1']|safe}},
+    datasets: [{
+      label: 'Mes compétences',
+      data: {{donnees['data_diff_1']|safe}},
+      backgroundColor : "rgba(46,177,255,0.5)",
+	  borderColor : "rgba(46,177,255,1)",
+	  pointBackgroundColor : "rgba(46,177,255,1)",
+	  pointBorderColor : "rgba(46,177,255,1)"
+    }, {
+      label: 'Mon groupe de pairs',
+      data: {{donnees['data_diff_1_cohorte']|safe}},
+      backgroundColor : "rgba(220,220,220,0.5)",
+	  borderColor : "rgba(220,220,220,1)",
+	  pointBackgroundColor : "rgba(220,220,220,1)",
+	  pointBorderColor : "rgba(220,220,220,1)"
+    }],
+  options: {
+        scale: {
+			
+                ticks: {
+                    max: 100
+                }
+            
+        }
+	}
+  }
+});
+</script></div>
+
+<hr size=1>
+<div class="row">
+<h3>Mes corrections</h3>
+<p><i>Le corrigé des phrases où j'ai fait une erreur.</i></p>
+<br>
+{% for phrase in phrases_corr %}
+<p><b>{{ phrase.Difficulte.type_difficulte }}{% if phrase.Difficulte.type_difficulte2 %} - {{ phrase.Difficulte.type_difficulte2 }}{% endif %}{% if phrase.Difficulte.type_difficulte3 %} - {{ phrase.Difficulte.type_difficulte3 }}{% endif %}</b></p>
+<p>{% filter markdown %}{{ phrase.debut_phrase }}<b>{{ phrase.debut_mot_erreur }}<font color="green">{{ phrase.element_reponse }}</font></b>{{ phrase.fin_mot_erreur }}{{ phrase.fin_phrase }}{% endfilter %}</p>
+            <p>{{ phrase.Ouvrage.nom_auteur }}, <em>{{ phrase.Ouvrage.nom_oeuvre }}</em>, {{ phrase.Ouvrage.annee_oeuvre }}</p>
+<hr align="LEFT" width="25%" size="5" >
+{% endfor %}
+</div>
+<hr size=1>       
+<p>Cliquer <a href="{{ url_for('orthozor.index') }}">ici</a> pour revenir à l'accueil.</p>
+	
+	</body>
+</html>
+{% endblock %}
+

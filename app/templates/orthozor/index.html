@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="page-header user-profile">
+	<div class="user_avatar"><img src="{{ user.gravatar(128) }}"></div>
+	<h1>Bonjour {{ user.username }}</h1>
+</div>
+<p>Bienvenue sur Orthozor[alpha] ; cette application est conçue pour vous aider à repérer vos difficultés orthographiques à travers un test de positionnement automatisé. Si tout va bien, elle vous indiquera une liste de points forts et de points faibles à travailler.</p>
+<p>En cliquant sur le lien ci-dessous, vous commencerez un test composé d'une quarantaine phrases à compléter ; le test s'arrêtera de lui-même au bout de 40 minutes si vous n'avez pas terminé (ce n'est pas grave!). Deux précisions importantes :</p>
+<ul>
+<li><b>Parfois la phrase est correcte, il n'y a rien à ajouter.</b> Dans ce cas, appuyez simplement sur entrée</li>
+<li>Réfléchissez bien avant d'appuyer sur entrée, vous ne pouvez <b>pas revenir en arrière</b> pour corriger une réponse.</li>
+</ul>
+<p>Avant de commencer, merci de bien vouloir <b><a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSeD8qEAGHqEyrUA8sP7J-zf9-4pXUOhrehBNjsdpWTjuCIoEQ/viewform?usp=sf_link"</a>répondre à ce bref questionnaire entièrement anonyme</a></b> ; il nous aidera à rendre l'application encore plus utile pour vous.</p>
+<p> Vous avez répondu au questionnaire? Alors vous pouvez commencer le test! Lorsque vous aurez fini, <b>revenez sur cette page</b>, nous avons encre quelques questions.</p>
+<p><a href="{{ url_for('questionnaire.questions') }}" class="btn btn-primary" role="button">Passer un nouveau test</a></p>
+<div>Vous avez fini le test? Merci de prendre un moment pour <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLScv8Dg_qXDItQvx8lHI6GbT1SzZOlmHLWoHMeeU5nRVtuuvNg/viewform?usp=sf_link">répondre à ce <b>questionnaire de bilan</b></a>, lui aussi nous aidera à rendre le test encore plus pertinent. Merci pour votre participation!</div>
+<div><h3>-*- Orthozor est encore dans ses toutes premières semaines ; si vous encontrez un bug, merci de nous le signaler! -*-</h3></div>
+{% endblock %}
