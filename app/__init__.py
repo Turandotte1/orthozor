@@ -9,7 +9,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_admin import Admin
-from flask_redis import Redis
+from flask_redis import FlaskRedis
 from flask_admin.contrib import rediscli
 from app.models_admin import UserView, OrthozorModelView
 from config import config, Config
@@ -22,7 +22,7 @@ from celery import Celery
 
 db = SQLAlchemy()
 migrate = Migrate()
-redis = Redis()
+redis = FlaskRedis()
 sess = Session()
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
