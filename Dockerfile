@@ -13,12 +13,6 @@ RUN apt-get update -y && apt-get install -y dirmngr --install-recommends softwar
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y r-base postgresql
 RUN apt-get -f install
 
-
-COPY requirements.txt requirements.txt
-RUN python -m venv venv
-RUN venv/bin/pip install -r requirements.txt
-
-
 #Installation des packages R
 RUN Rscript -e "install.packages('mirtCAT', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
@@ -30,6 +24,9 @@ RUN chmod +x boot.sh
 ENV FLASK_APP wsgi.py
 ENV FLASK_CONFIG production
 
+COPY requirements.txt requirements.txt
+RUN python -m venv venv
+RUN venv/bin/pip install -r requirements.txt
 
 RUN chown -R orthozor:orthozor ./
 USER orthozor
