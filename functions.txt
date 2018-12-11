@@ -1,0 +1,151 @@
+./wsgi.py:app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+./migrations/versions/02da16c2c4ed_.py:def upgrade():
+./migrations/versions/02da16c2c4ed_.py:def downgrade():
+./migrations/versions/da1800cd2921_.py:def upgrade():
+./migrations/versions/da1800cd2921_.py:def downgrade():
+./migrations/versions/546a8ba02f44_.py:def upgrade():
+./migrations/versions/546a8ba02f44_.py:def downgrade():
+./migrations/env.py:# other values from the config, defined by the needs of env.py,
+./migrations/env.py:def run_migrations_offline():
+./migrations/env.py:def run_migrations_online():
+./migrations/env.py:    def process_revision_directives(context, revision, directives):
+./migrations/script.py.mako:def upgrade():
+./migrations/script.py.mako:def downgrade():
+./config.py:    'default' : DevelopementConfig    
+./app/tasks_stats.py:def toutes_stats():
+./app/tasks_stats.py:def calcul_p_value():
+./app/tasks_stats.py:def calcul_centile():
+./app/tasks_stats.py:def calcul_discrimination_index():
+./app/tasks_stats.py:def point_biserial(id_question):
+./app/mirt.py:def generate_mirt(ordre_q_et_d = False):
+./app/mirt.py:    def matrice_reponses(ids_et_diffs_toutes_phrases):
+./app/mirt.py:    def generation_params_modele(df):
+./app/mirt.py:def integration_mirt_db(mirt_obj, ordre_q_et_d):
+./app/mirt.py:def generer_objet_mirtcat(mirt_object):
+./app/mirt.py:    min_sem = defaut 0.3 Poss de passer un vecteur
+./app/mirt.py:def mirtcat_next_item(mirtcat_obj, questions_repondues=list(), reponses=None):
+./app/mirt.py:def next_question(questions = [], reponses = None):
+./app/mirt.py:def mirt_obj_from_db():
+./app/mirt.py:def get_thetas(questions_repondues=list(), reponses=None):
+./app/mirt.py:#def chargement_mirt_obj_vers_redis(mirt_obj):
+./app/admin/routes.py:def accueil_admin():
+./app/admin/routes.py:def test_admin():
+./app/admin/routes.py:# def logout():
+./app/auth/routes.py:def login():
+./app/auth/routes.py:def logout():
+./app/_admin/routes.py:def accueil_admin():
+./app/_admin/routes.py:def test_admin():
+./app/_admin/routes.py:# def logout():
+./app/questionnaire/routes.py:def questions():
+./app/questionnaire/routes.py:def bilan():
+./app/questionnaire/routes.py:def clearsession():
+./app/models_admin.py:    def is_accessible(self):
+./app/models_admin.py:    def inaccessible_callback(self, name, **kwargs):
+./app/templates/base.html:<div class="navbar navbar-default" role="navigation">
+./app/orthozor/routes.py:def index():
+./app/orthozor/routes.py:def user(username):
+./app/__init__.py:def add_together(a, b):
+./app/__init__.py:def create_app(config_name):
+./app/recompense/routes.py:def recompense(image_score_duree):
+./app/models.py:    def __repr__(self):
+./app/models.py:    def __repr__(self):
+./app/models.py:    premiere_inscription = db.Column(db.DateTime(), default=datetime.utcnow)
+./app/models.py:    nb_sessions = db.Column(db.Integer, default=0)
+./app/models.py:    def password(self):
+./app/models.py:    def password(self, password):
+./app/models.py:    def verify_password(self, password):
+./app/models.py:    def __init__(self, **kwargs):
+./app/models.py:    def gravatar(self, size=100, default='identicon', rating='g'):
+./app/models.py:        return '{url}/{hash}?s={size}&d={default}&r={rating}'.format(
+./app/models.py:            url=url, hash=_hash, size=size, default=default, rating=rating)
+./app/models.py:    def __repr__(self):
+./app/models.py:def load_user(user_id):
+./app/models.py:    #nb_reponses = db.Column(db.Integer, default=0)
+./app/models.py:    #nb_reponses_correctes = db.Column(db.Integer, default=0)
+./app/models.py:    statut = db.Column(db.String(14), default = "En évaluation")
+./app/models.py:    def __repr__(self):
+./app/models.py:    def __repr__(self):
+./app/models.py:    def __repr__(self):
+./app/models.py:    heure_debut = db.Column(db.DateTime, default=datetime.utcnow)
+./app/models.py:    controle = db.Column(db.Boolean, default=False)
+./app/models.py:    def __init__(self, user_id):
+./app/models.py:    def __repr__(self):
+./app/models.py:    def __repr__(self):
+./app/models.py:    def __repr__(self):
+./app/models.py:    irt_a1 = db.Column(db.Float, default=1)
+./app/models.py:    irt_g = db.Column(db.Float, default=0)
+./app/models.py:    irt_u = db.Column(db.Float,  default=1)
+./functions.txt:./wsgi.py:app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+./functions.txt:./migrations/versions/02da16c2c4ed_.py:def upgrade():
+./functions.txt:./migrations/versions/02da16c2c4ed_.py:def downgrade():
+./functions.txt:./migrations/versions/da1800cd2921_.py:def upgrade():
+./functions.txt:./migrations/versions/da1800cd2921_.py:def downgrade():
+./functions.txt:./migrations/versions/546a8ba02f44_.py:def upgrade():
+./functions.txt:./migrations/versions/546a8ba02f44_.py:def downgrade():
+./functions.txt:./migrations/env.py:# other values from the config, defined by the needs of env.py,
+./functions.txt:./migrations/env.py:def run_migrations_offline():
+./functions.txt:./migrations/env.py:def run_migrations_online():
+./functions.txt:./migrations/env.py:    def process_revision_directives(context, revision, directives):
+./functions.txt:./migrations/script.py.mako:def upgrade():
+./functions.txt:./migrations/script.py.mako:def downgrade():
+./functions.txt:./config.py:    'default' : DevelopementConfig    
+./functions.txt:./app/tasks_stats.py:def toutes_stats():
+./functions.txt:./app/tasks_stats.py:def calcul_p_value():
+./functions.txt:./app/tasks_stats.py:def calcul_centile():
+./functions.txt:./app/tasks_stats.py:def calcul_discrimination_index():
+./functions.txt:./app/tasks_stats.py:def point_biserial(id_question):
+./functions.txt:./app/mirt.py:def generate_mirt(ordre_q_et_d = False):
+./functions.txt:./app/mirt.py:    def matrice_reponses(ids_et_diffs_toutes_phrases):
+./functions.txt:./app/mirt.py:    def generation_params_modele(df):
+./functions.txt:./app/mirt.py:def integration_mirt_db(mirt_obj, ordre_q_et_d):
+./functions.txt:./app/mirt.py:def generer_objet_mirtcat(mirt_object):
+./functions.txt:./app/mirt.py:    min_sem = defaut 0.3 Poss de passer un vecteur
+./functions.txt:./app/mirt.py:def mirtcat_next_item(mirtcat_obj, questions_repondues=list(), reponses=None):
+./functions.txt:./app/mirt.py:def next_question(questions = [], reponses = None):
+./functions.txt:./app/mirt.py:def mirt_obj_from_db():
+./functions.txt:./app/mirt.py:def get_thetas(questions_repondues=list(), reponses=None):
+./functions.txt:./app/mirt.py:#def chargement_mirt_obj_vers_redis(mirt_obj):
+./functions.txt:./app/admin/routes.py:def accueil_admin():
+./functions.txt:./app/admin/routes.py:def test_admin():
+./functions.txt:./app/admin/routes.py:# def logout():
+./functions.txt:./app/auth/routes.py:def login():
+./functions.txt:./app/auth/routes.py:def logout():
+./functions.txt:./app/_admin/routes.py:def accueil_admin():
+./functions.txt:./app/_admin/routes.py:def test_admin():
+./functions.txt:./app/_admin/routes.py:# def logout():
+./functions.txt:./app/questionnaire/routes.py:def questions():
+./functions.txt:./app/questionnaire/routes.py:def bilan():
+./functions.txt:./app/questionnaire/routes.py:def clearsession():
+./functions.txt:./app/models_admin.py:    def is_accessible(self):
+./functions.txt:./app/models_admin.py:    def inaccessible_callback(self, name, **kwargs):
+./functions.txt:./app/templates/base.html:<div class="navbar navbar-default" role="navigation">
+./functions.txt:./app/orthozor/routes.py:def index():
+./functions.txt:./app/orthozor/routes.py:def user(username):
+./functions.txt:./app/__init__.py:def add_together(a, b):
+./functions.txt:./app/__init__.py:def create_app(config_name):
+./functions.txt:./app/recompense/routes.py:def recompense(image_score_duree):
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    premiere_inscription = db.Column(db.DateTime(), default=datetime.utcnow)
+./functions.txt:./app/models.py:    nb_sessions = db.Column(db.Integer, default=0)
+./functions.txt:./app/models.py:    def password(self):
+./functions.txt:./app/models.py:    def password(self, password):
+./functions.txt:./app/models.py:    def verify_password(self, password):
+./functions.txt:./app/models.py:    def __init__(self, **kwargs):
+./functions.txt:./app/models.py:    def gravatar(self, size=100, default='identicon', rating='g'):
+./functions.txt:./app/models.py:        return '{url}/{hash}?s={size}&d={default}&r={rating}'.format(
+./functions.txt:./app/models.py:            url=url, hash=_hash, size=size, default=default, rating=rating)
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:def load_user(user_id):
+./functions.txt:./app/models.py:    #nb_reponses = db.Column(db.Integer, default=0)
+./functions.txt:./app/models.py:    #nb_reponses_correctes = db.Column(db.Integer, default=0)
+./functions.txt:./app/models.py:    statut = db.Column(db.String(14), default = "En évaluation")
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    heure_debut = db.Column(db.DateTime, default=datetime.utcnow)
+./functions.txt:./app/models.py:    controle = db.Column(db.Boolean, default=False)
+./functions.txt:./app/models.py:    def __init__(self, user_id):
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    def __repr__(self):
+./functions.txt:./app/models.py:    def __repr__(self):
