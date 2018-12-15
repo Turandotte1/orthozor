@@ -2,7 +2,7 @@
 #! python3
 
 
+from . import routes
 from flask import Blueprint
 
 orthozor = Blueprint('orthozor', __name__)
-from . import routes

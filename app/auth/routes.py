@@ -8,7 +8,8 @@ from ..models import Utilisateur
 from . import auth
 from .forms import LoginForm
 
-#Attention, risque d'attaque par injection sur next, à corrriger
+# Attention, risque d'attaque par injection sur next, à corrriger
+
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -26,8 +27,8 @@ def login():
             next_page = url_for('orthozor.index')
         return redirect(next_page)
     return render_template('auth/login.html', title='Connexion', form=form)
-    
-    
+
+
 @auth.route('/logout')
 @login_required
 def logout():

@@ -6,7 +6,6 @@ from flask_wtf import FlaskForm as Form
 from wtforms.fields import TextField, SubmitField
 
 
-
 class QuestionForm(Form):
     answer = TextField('Réponse', validators=[])
     submit = SubmitField('Valider')

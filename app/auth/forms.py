@@ -8,7 +8,8 @@ from wtforms.validators import Required, Length, Email
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Adresse email', validators=[Required(), Length(1, 64), Email()])
+    email = StringField('Adresse email', validators=[
+                        Required(), Length(1, 64), Email()])
     password = PasswordField('Mot de passe', validators=[Required()])
     remember_me = BooleanField('Rester connecté')
     submit = SubmitField('Connexion')
